@@ -1,3 +1,4 @@
+// time - O(n^2)
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -12,3 +13,8 @@ public:
         return {}; // No solution found
     }
 };
+
+/*
+проходимся двойным циклом по массиву, перебирая пары.
+Когда встретили первую пару чисел, возращааем её
+*/
