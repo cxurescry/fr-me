@@ -4,6 +4,7 @@
 #include <cctype>
 using namespace std;
 
+// перевод числа из десятичной в любую СС
 string toBase(unsigned int x, unsigned int base) {
     string digits = "0123456789ABCDEFGHIJK";
     string result;
@@ -29,6 +30,7 @@ char digitToChar(int d) {
     return 'A' + (d - 10);
 }
 
+// 1. Вывести представление числа r - ой СС
 void task1() {
     cout << "Введите основание системы счисления p (2 <= p <= 16): ";
     unsigned int p; cin >> p;
@@ -41,6 +43,7 @@ void task1() {
     cout << toBase(n, p) << endl;
 }
 
+// 2. перевести в десятичную СС по схеме Горнера
 void task2() {
     cout << "Введите основание системы счисления p (2 <= p <= 16): ";
     unsigned int p; cin >> p;
@@ -54,6 +57,9 @@ void task2() {
         int digit;
         if (isdigit(c)) {
             digit = c - '0';
+            // например, в ASCII таблице '2' имеет код 50
+            // чтобы достать его числовое значение, 
+            // нужно от данного кода отнять начальный код для чисел ('0' имеет код 48, '2' - '0' = 50 - 48 = 2)
         }
         else {
             digit = toupper(c) - 'A' + 10;
@@ -63,6 +69,7 @@ void task2() {
     cout << num << "(" << p << ") = " << result << "(10)" << endl;
 }
 
+// 3. перевести числа M и N в p-СС и сложить м-у собой
 void task3() {
     cout << "Введите основание системы счисления p (2 <= p <= 16): ";
     unsigned int p; cin >> p;
