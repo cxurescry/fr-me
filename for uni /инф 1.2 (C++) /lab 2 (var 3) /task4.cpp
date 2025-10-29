@@ -3,6 +3,7 @@
 using namespace std;
 
 int main() {
+    cout << "Введите X: "
     double x; cin >> x;
     double term, approximation; // слагаемое, сумма ряда
     approximation = 0.0;
