@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    cout << "Введите X: ";
+    cout << "Введите X (-1 < x < 1): ";
     double x; cin >> x;
     double term, approximation; // слагаемое, сумма ряда
     approximation = 0.0;
