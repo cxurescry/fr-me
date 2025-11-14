@@ -19,9 +19,9 @@ int main() {
     unsigned int res = X + Y;
 
     std::cout << "       |  дес  |  восм  |  hex  |  двоичный" << std::endl;
-    std::cout << "x =    | " << std::setw(5) << X << " | " << std::setw(6) << std::oct << X << " | " << std::setw(4) << std::hex << X << " | " << toBinary(X) << std::endl;
-    std::cout << "y =    | " << std::setw(5) << Y << " | " << std::setw(6) << std::oct << Y << " | " << std::setw(4) << std::hex << Y << " | " << toBinary(Y) << std::endl;
-    std::cout << "x + y =| " << std::setw(5) << res << " | " << std::setw(6) << std::oct << res << " | " << std::setw(4) << std::hex << res << " | " << toBinary(res) << std::endl;
+    std::cout << "x =    | " << std::setw(5) << std::dec << X << " | " << std::setw(6) << std::oct << X << " | " << std::setw(4) << std::hex << X << " | " << toBinary(X) << std::endl;
+    std::cout << "y =    | " << std::setw(5) << std::dec << Y << " | " << std::setw(6) << std::oct << Y << " | " << std::setw(4) << std::hex << Y << " | " << toBinary(Y) << std::endl;
+    std::cout << "x + y =| " << std::setw(5) << std::dec << res << " | " << std::setw(6) << std::oct << res << " | " << std::setw(4) << std::hex << res << " | " << toBinary(res) << std::endl;
 
     return 0;
 }
