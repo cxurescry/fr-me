@@ -16,12 +16,12 @@ int main() {
     unsigned int X;
     std::cout << "введите число ";
     std::cin >> X;
+    unsigned int Y = X + 1;
 
-    unsigned int X_plus_1 = X + 1;
 
     std::cout << "       |  дес  |  восм  |  hex  |  двоичный" << std::endl;
     std::cout << "x =    | " << std::setw(5) << X << " | " << std::setw(6) << std::oct << X << " | " << std::setw(4) << std::hex << X << " | " << toBinary(X) << std::endl;
-    std::cout << "x+1=   | " << std::setw(5) << X_plus_1 << " | " << std::setw(6) << std::oct << X_plus_1 << " | " << std::setw(4) << std::hex << X_plus_1 << " | " << toBinary(X_plus_1) << std::endl;
+    std::cout << "x+1=   | " << std::setw(5) << std::dec << Y << " | " << std::setw(6) << std::oct << Y << " | " << std::setw(4) << std::hex << Y << " | " << toBinary(Y) << std::endl;
 
     return 0;
 }
