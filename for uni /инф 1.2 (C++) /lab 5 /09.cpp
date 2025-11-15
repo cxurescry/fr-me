@@ -1,40 +1,146 @@
 #include <iostream>
 #include <iomanip>
-#include <string>
 
 int main() {
     int N, M;
-    std::cout << "Введите числа N и M: ";
+    
+    std::cout << "Введите два целых десятичных числа N и M (могут быть отрицательными): ";
     std::cin >> N >> M;
-
-    std::cout << "N = " << N << ", M = " << M << std::endl;
-
-    // Сравнения с помощью оператора if
-    if (N == M) {
-        std::cout << "N равно M" << std::endl;
-    } else if (N != M) {
-        std::cout << "N не равно M" << std::endl;
+    
+    std::cout << "\nВведенные числа:" << std::endl;
+    std::cout << "N = " << N << std::endl;
+    std::cout << "M = " << M << std::endl;
+    
+    std::cout << "\n=== Использование логических операторов (&&, ||, !) ===" << std::endl;
+    
+    // Логическое И (&&)
+    std::cout << "\n1. Логическое И (&&):" << std::endl;
+    if (N > 0 && M > 0) {
+        std::cout << "   Условие (N > 0 && M > 0): ИСТИНА" << std::endl;
+        std::cout << "   Оба числа положительные" << std::endl;
+    } else {
+        std::cout << "   Условие (N > 0 && M > 0): ЛОЖЬ" << std::endl;
+        std::cout << "   Хотя бы одно число не положительное" << std::endl;
     }
-
-    if (N > M) {
-        std::cout << "N больше M" << std::endl;
-    } else if (N < M) {
-        std::cout << "N меньше M" << std::endl;
+    
+    // Логическое ИЛИ (||)
+    std::cout << "\n2. Логическое ИЛИ (||):" << std::endl;
+    if (N > 0 || M > 0) {
+        std::cout << "   Условие (N > 0 || M > 0): ИСТИНА" << std::endl;
+        std::cout << "   Хотя бы одно число положительное" << std::endl;
+    } else {
+        std::cout << "   Условие (N > 0 || M > 0): ЛОЖЬ" << std::endl;
+        std::cout << "   Оба числа не положительные" << std::endl;
     }
-
-    if (N >= M) {
-        std::cout << "N больше или равно M" << std::endl;
-    } else if (N <= M) {
-        std::cout << "N меньше или равно M" << std::endl;
+    
+    // Логическое НЕ (!)
+    std::cout << "\n3. Логическое НЕ (!):" << std::endl;
+    if (!(N == 0)) {
+        std::cout << "   Условие (!(N == 0)): ИСТИНА" << std::endl;
+        std::cout << "   N не равно нулю" << std::endl;
+    } else {
+        std::cout << "   Условие (!(N == 0)): ЛОЖЬ" << std::endl;
+        std::cout << "   N равно нулю" << std::endl;
     }
-
-    // Проверка корректности замены логических операций на битовые
-    // Пример: N && M эквивалентно (N != 0) & (M != 0) только если рассматривать ненулевое значение как true
-    // Это не всегда корректно, так как логические операции работают с истинностью, а битовые - с битами.
-    std::cout << "\nАнализ замены логических операций на битовые:" << std::endl;
-    std::cout << "Логическое И (&&): " << (N && M) << std::endl;
-    std::cout << "Битовое И (&): " << (N & M) << std::endl;
-    std::cout << "Замена НЕкорректна, так как результаты могут отличаться." << std::endl;
-
+    
+    // Комбинированное условие с логическими операторами
+    std::cout << "\n4. Комбинированное условие:" << std::endl;
+    if ((N > 0 && M < 0) || (N < 0 && M > 0)) {
+        std::cout << "   Условие ((N > 0 && M < 0) || (N < 0 && M > 0)): ИСТИНА" << std::endl;
+        std::cout << "   Числа имеют разные знаки" << std::endl;
+    } else {
+        std::cout << "   Условие ((N > 0 && M < 0) || (N < 0 && M > 0)): ЛОЖЬ" << std::endl;
+        std::cout << "   Числа имеют одинаковые знаки или одно из них равно нулю" << std::endl;
+    }
+    
+    std::cout << "\n=== Использование побитовых операторов (&, |, ~) ===" << std::endl;
+    
+    // Побитовое И (&)
+    std::cout << "\n1. Побитовое И (&):" << std::endl;
+    int bitwiseAnd = N & M;
+    std::cout << "   N & M = " << bitwiseAnd << std::endl;
+    if (N & M) {
+        std::cout << "   Условие (N & M): ИСТИНА (результат не равен нулю)" << std::endl;
+    } else {
+        std::cout << "   Условие (N & M): ЛОЖЬ (результат равен нулю)" << std::endl;
+    }
+    
+    // Побитовое ИЛИ (|)
+    std::cout << "\n2. Побитовое ИЛИ (|):" << std::endl;
+    int bitwiseOr = N | M;
+    std::cout << "   N | M = " << bitwiseOr << std::endl;
+    if (N | M) {
+        std::cout << "   Условие (N | M): ИСТИНА (результат не равен нулю)" << std::endl;
+    } else {
+        std::cout << "   Условие (N | M): ЛОЖЬ (результат равен нулю)" << std::endl;
+    }
+    
+    // Побитовое НЕ (~)
+    std::cout << "\n3. Побитовое НЕ (~):" << std::endl;
+    int bitwiseNotN = ~N;
+    std::cout << "   ~N = " << bitwiseNotN << std::endl;
+    if (~N) {
+        std::cout << "   Условие (~N): ИСТИНА (результат не равен нулю)" << std::endl;
+    } else {
+        std::cout << "   Условие (~N): ЛОЖЬ (результат равен нулю)" << std::endl;
+    }
+    
+    // Комбинированное условие с побитовыми операторами
+    std::cout << "\n4. Комбинированное условие с побитовыми операторами:" << std::endl;
+    if ((N & 1) && (M & 1)) {
+        std::cout << "   Условие ((N & 1) && (M & 1)): ИСТИНА" << std::endl;
+        std::cout << "   Оба числа нечетные (младший бит = 1)" << std::endl;
+    } else {
+        std::cout << "   Условие ((N & 1) && (M & 1)): ЛОЖЬ" << std::endl;
+        std::cout << "   Хотя бы одно число четное" << std::endl;
+    }
+    
+    // Сравнение логических и побитовых операторов
+    std::cout << "\n=== Сравнение результатов ===" << std::endl;
+    
+    bool logicalAnd = (N > 0) && (M > 0);
+    bool bitwiseAndBool = (N > 0) & (M > 0);
+    std::cout << "(N > 0) && (M > 0) = " << std::boolalpha << logicalAnd << std::endl;
+    std::cout << "(N > 0) & (M > 0) = " << std::boolalpha << bitwiseAndBool << std::endl;
+    
+    bool logicalOr = (N > 0) || (M > 0);
+    bool bitwiseOrBool = (N > 0) | (M > 0);
+    std::cout << "(N > 0) || (M > 0) = " << std::boolalpha << logicalOr << std::endl;
+    std::cout << "(N > 0) | (M > 0) = " << std::boolalpha << bitwiseOrBool << std::endl;
+    
+    bool logicalNot = !(N == 0);
+    bool bitwiseNotBool = ~(N == 0);
+    std::cout << "!(N == 0) = " << std::boolalpha << logicalNot << std::endl;
+    std::cout << "~(N == 0) = " << std::boolalpha << bitwiseNotBool << std::endl;
+    std::cout << "   Примечание: ~(N == 0) работает некорректно, так как ~ применяется к целому числу (0 или 1)" << std::endl;
+    
+    std::cout << "\n=== ВЫВОД ===" << std::endl;
+    std::cout << "Корректность замены логических операций на побитовые в условных операторах:" << std::endl;
+    std::cout << "\n1. Логические операторы (&&, ||, !):" << std::endl;
+    std::cout << "   - Используют short-circuit evaluation (сокращенное вычисление)" << std::endl;
+    std::cout << "   - Для &&: если левая часть ложь, правая часть не вычисляется" << std::endl;
+    std::cout << "   - Для ||: если левая часть истина, правая часть не вычисляется" << std::endl;
+    std::cout << "   - Возвращают булево значение (true/false)" << std::endl;
+    std::cout << "   - Оператор ! инвертирует булево значение" << std::endl;
+    
+    std::cout << "\n2. Побитовые операторы (&, |, ~):" << std::endl;
+    std::cout << "   - Всегда вычисляют оба операнда" << std::endl;
+    std::cout << "   - Выполняют операции над каждым битом" << std::endl;
+    std::cout << "   - Возвращают целочисленное значение" << std::endl;
+    std::cout << "   - Оператор ~ инвертирует все биты числа" << std::endl;
+    
+    std::cout << "\n3. ЗАМЕНА МОЖЕТ БЫТЬ НЕКОРРЕКТНОЙ:" << std::endl;
+    std::cout << "   - Побитовые операторы не поддерживают short-circuit evaluation" << std::endl;
+    std::cout << "   - Это может привести к нежелательным побочным эффектам" << std::endl;
+    std::cout << "   - Оператор ~ работает по-другому: ~0 = -1 (все биты установлены), а не true" << std::endl;
+    std::cout << "   - Для булевых значений в условиях можно использовать, но не рекомендуется" << std::endl;
+    std::cout << "   - Для целочисленных значений в условиях: работает, но может давать неожиданные результаты" << std::endl;
+    
+    std::cout << "\n4. РЕКОМЕНДАЦИИ:" << std::endl;
+    std::cout << "   - В условных операторах (if, while, for) использовать логические операторы (&&, ||, !)" << std::endl;
+    std::cout << "   - Побитовые операторы (&, |, ~) использовать для работы с битами чисел" << std::endl;
+    std::cout << "   - Не заменять логические операторы на побитовые без понимания последствий" << std::endl;
+    
     return 0;
 }
+
